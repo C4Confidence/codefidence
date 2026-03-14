@@ -12,7 +12,7 @@ export default function Home() {
       </div>
 
       <section className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20">
-        {/* Hero Content */}
+        {/* Hero Content ..*/}
         <div className="flex flex-col items-center text-center space-y-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-medium mb-4">
             <span className="relative flex h-2 w-2">
