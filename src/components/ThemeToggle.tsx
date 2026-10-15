@@ -5,14 +5,6 @@ import { THEME_STORAGE_KEY } from '../lib/theme';
 
 type Theme = 'light' | 'dark';
 
-function getSystemTheme(): Theme {
-  try {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  } catch {
-    return 'light';
-  }
-}
-
 function applyTheme(theme: Theme) {
   document.documentElement.dataset.theme = theme;
   document.documentElement.style.colorScheme = theme;
@@ -20,43 +12,20 @@ function applyTheme(theme: Theme) {
 
 export default function ThemeToggle() {
   useEffect(() => {
-    const root = document.documentElement;
-    const updateSystemTheme = () => {
-      if (!root.dataset.themePreference) applyTheme(getSystemTheme());
-    };
     const updateStoredTheme = (event: StorageEvent) => {
       if (event.key !== THEME_STORAGE_KEY && event.key !== null) return;
-
-      if (event.newValue === 'light' || event.newValue === 'dark') {
-        root.dataset.themePreference = event.newValue;
-        applyTheme(event.newValue);
-      } else {
-        delete root.dataset.themePreference;
-        applyTheme(getSystemTheme());
-      }
+      applyTheme(event.newValue === 'dark' ? 'dark' : 'light');
     };
 
-    let media: MediaQueryList | undefined;
-    try {
-      media = window.matchMedia('(prefers-color-scheme: dark)');
-    } catch {
-      // Browsers without a color preference API use the light fallback.
-    }
-    media?.addEventListener('change', updateSystemTheme);
     window.addEventListener('storage', updateStoredTheme);
-    // Recheck after hydration in case the OS preference changed during loading.
-    updateSystemTheme();
 
     return () => {
-      media?.removeEventListener('change', updateSystemTheme);
       window.removeEventListener('storage', updateStoredTheme);
     };
   }, []);
 
   const toggleTheme = () => {
     const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    // Retain explicit intent for this page even if writing storage is denied.
-    document.documentElement.dataset.themePreference = theme;
     applyTheme(theme);
     try {
       window.localStorage.setItem(THEME_STORAGE_KEY, theme);
