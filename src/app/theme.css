@@ -1,0 +1,319 @@
+/* The new control uses the existing palette; page colors below are dark-only. */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  transition: background .2s, border-color .2s;
+}
+
+.theme-toggle:hover {
+  background: #ecefe5;
+  border-color: #a6b39f;
+}
+
+.theme-icon {
+  width: 19px;
+  height: 19px;
+}
+
+.theme-icon--sun { display: none; }
+.theme-icon--moon { display: block; }
+.theme-label--light { display: none; }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #111b17;
+  --surface: #19251f;
+  --ink: #edf1e8;
+  --muted: #b2c0b1;
+  --line: #34483b;
+  --lime: #b9cc99;
+  --green: #a7c49b;
+}
+
+:root[data-theme="dark"] ::selection {
+  background: var(--lime);
+  color: #16241a;
+}
+
+:root[data-theme="dark"] :focus-visible {
+  outline-color: #b9cc99;
+}
+
+:root[data-theme="dark"] .theme-icon--sun { display: block; }
+:root[data-theme="dark"] .theme-icon--moon { display: none; }
+:root[data-theme="dark"] .theme-label--dark { display: none; }
+:root[data-theme="dark"] .theme-label--light { display: inline; }
+
+:root[data-theme="dark"] .theme-toggle:hover {
+  background: #27392d;
+  border-color: #78916c;
+}
+
+/* Navigation and interactive surfaces. */
+:root[data-theme="dark"] .site-header {
+  background: #111b17ee;
+}
+
+:root[data-theme="dark"] .button-primary,
+:root[data-theme="dark"] .header-contact,
+:root[data-theme="dark"] .mobile-nav a:last-child,
+:root[data-theme="dark"] .skip-link {
+  background: var(--lime);
+  color: #16241a;
+  border-color: var(--lime);
+}
+
+:root[data-theme="dark"] .button-primary:hover,
+:root[data-theme="dark"] .header-contact:hover,
+:root[data-theme="dark"] .mobile-nav a:last-child:hover {
+  background: #c8d9af;
+  border-color: #c8d9af;
+}
+
+:root[data-theme="dark"] .button-secondary {
+  border-color: #60755f;
+}
+
+:root[data-theme="dark"] .button-secondary:hover {
+  background: #27392d;
+  border-color: #8aa37d;
+}
+
+:root[data-theme="dark"] .mobile-nav:not([hidden]) {
+  background: var(--surface);
+  box-shadow: 0 16px 30px #00000038;
+}
+
+:root[data-theme="dark"] .mobile-nav a:not(:last-child):hover,
+:root[data-theme="dark"] .mobile-nav a[aria-current="page"] {
+  background: #2b3f30;
+}
+
+/* Hero, code sample, and architecture diagram. */
+:root[data-theme="dark"] .availability {
+  background: #243725;
+  border-color: #435b3c;
+  color: #c2d5ae;
+}
+
+:root[data-theme="dark"] .availability > span {
+  background: #a7c49b;
+  box-shadow: 0 0 0 3px #a7c49b12;
+}
+
+:root[data-theme="dark"] .hero-note-mark {
+  color: #acbea1;
+}
+
+:root[data-theme="dark"] .preview-orbit {
+  background: radial-gradient(circle, #33533b55 0, #33533b00 70%);
+}
+
+:root[data-theme="dark"] .code-window {
+  background: #142019;
+  border-color: #3b5140;
+  box-shadow: 0 18px 38px #00000028;
+}
+
+:root[data-theme="dark"] .code-window-status {
+  background: #213326;
+}
+
+:root[data-theme="dark"] .code-lime,
+:root[data-theme="dark"] .file-language {
+  color: #c0d5a6;
+}
+
+:root[data-theme="dark"] .architecture-card {
+  background: #213127;
+  border-color: #435b45;
+  box-shadow: 0 12px 25px #00000024;
+}
+
+:root[data-theme="dark"] .architecture-heading,
+:root[data-theme="dark"] .architecture-flow > .arrow-icon {
+  color: #aec69f;
+}
+
+:root[data-theme="dark"] .architecture-card > p {
+  color: #b7c8ad;
+  border-top-color: #49613f;
+}
+
+/* Shared project cards and the fully themed miniature interfaces. */
+:root[data-theme="dark"] .project-card {
+  background: var(--surface);
+}
+
+:root[data-theme="dark"] .project-card:hover {
+  border-color: #78916c;
+  box-shadow: 0 10px 26px #00000024;
+}
+
+:root[data-theme="dark"] .project-visual--dashboard { background: #203429; }
+:root[data-theme="dark"] .project-visual--auth { background: #263129; }
+:root[data-theme="dark"] .project-visual--ui { background: #2b3029; }
+
+:root[data-theme="dark"] .project-mini {
+  background: #18271f;
+  border-color: #476044;
+  box-shadow: 0 9px 20px #00000030;
+}
+
+:root[data-theme="dark"] .mini-topbar,
+:root[data-theme="dark"] .dashboard-sidebar,
+:root[data-theme="dark"] .mini-metric,
+:root[data-theme="dark"] .auth-preview-code {
+  border-color: #374f3b;
+}
+
+:root[data-theme="dark"] .mini-dots i,
+:root[data-theme="dark"] .mini-dots span {
+  background: #a0b795;
+}
+
+:root[data-theme="dark"] .mini-label,
+:root[data-theme="dark"] .mini-metric > span,
+:root[data-theme="dark"] .mini-chart > span,
+:root[data-theme="dark"] .auth-caption,
+:root[data-theme="dark"] .auth-preview-code {
+  color: #b7c8ad;
+}
+
+:root[data-theme="dark"] .dashboard-sidebar span { background: #486142; }
+:root[data-theme="dark"] .dashboard-sidebar span:first-child { background: #a5bf90; }
+:root[data-theme="dark"] .dashboard-sidebar b { background: #86a170; }
+:root[data-theme="dark"] .mini-metric b i { background: #afca92; }
+:root[data-theme="dark"] .mini-topbar-status { background: #afca92; }
+
+:root[data-theme="dark"] .mini-chart-bars {
+  background: repeating-linear-gradient(to bottom, transparent 0px, transparent 14px, #364b37 15px, transparent 16px);
+}
+
+:root[data-theme="dark"] .mini-chart-bars i { background: #76986b; }
+:root[data-theme="dark"] .mini-chart-bars i:nth-child(3n) { background: #afc997; }
+
+:root[data-theme="dark"] .auth-node {
+  background: #233529;
+  border-color: #4b6548;
+  box-shadow: 0 5px 12px #00000018;
+}
+
+:root[data-theme="dark"] .auth-node--active {
+  background: #a8bf92;
+  border-color: #a8bf92;
+  color: #16241a;
+}
+
+:root[data-theme="dark"] .auth-flow-line { background: #a0b98d; }
+:root[data-theme="dark"] .auth-flow-line::after { border-color: #a0b98d; }
+
+:root[data-theme="dark"] .ui-preview { background: #1b2921; }
+
+:root[data-theme="dark"] .ui-preview-pill {
+  background: #33482f;
+  color: #d0dfbf;
+}
+
+:root[data-theme="dark"] .ui-preview-button {
+  background: #b9cc99;
+  color: #16241a;
+}
+
+:root[data-theme="dark"] .ui-preview-button--secondary {
+  background: #374333;
+  color: #edf1e8;
+}
+
+:root[data-theme="dark"] .ui-preview-field {
+  border-color: #708963;
+  color: #c1d0b6;
+}
+
+:root[data-theme="dark"] .ui-preview-field b,
+:root[data-theme="dark"] .ui-preview-swatches > span {
+  color: #c1d0b6;
+}
+
+:root[data-theme="dark"] .ui-field-cursor { background: #b9cc99; }
+
+:root[data-theme="dark"] .ui-preview-swatches i {
+  border-color: #79916c;
+  background: #21372a;
+}
+
+:root[data-theme="dark"] .ui-preview-swatches i:nth-child(2) { background: #719163; }
+:root[data-theme="dark"] .ui-preview-swatches i:nth-child(3) { background: #b9cc99; }
+:root[data-theme="dark"] .ui-preview-swatches i:nth-child(4) { background: #edf1e8; }
+
+:root[data-theme="dark"] .project-category > span {
+  color: #bdd1ab;
+  border-color: #4b6144;
+}
+
+:root[data-theme="dark"] .project-focus,
+:root[data-theme="dark"] .project-index,
+:root[data-theme="dark"] .project-title-row > span {
+  color: #b8cda7;
+}
+
+:root[data-theme="dark"] .project-tags li {
+  background: #27382a;
+  border-color: #435a3d;
+  color: #c0d1b0;
+}
+
+/* Expertise, Work page introduction, and About page panels. */
+:root[data-theme="dark"] .section-number,
+:root[data-theme="dark"] .section-count,
+:root[data-theme="dark"] .capability-top > span,
+:root[data-theme="dark"] .capability-card .eyebrow,
+:root[data-theme="dark"] .process-step > span {
+  color: #b3c9a1;
+}
+
+:root[data-theme="dark"] .expertise-section {
+  background: #17251d;
+  border-color: var(--line);
+}
+
+:root[data-theme="dark"] .capability-grid {
+  background: #1d2c22;
+  border-color: #3c533b;
+}
+
+:root[data-theme="dark"] .capability-card + .capability-card {
+  border-color: #3c533b;
+}
+
+:root[data-theme="dark"] .projects-intro-note {
+  background: #203224;
+  border-left-color: #9dbb87;
+}
+
+:root[data-theme="dark"] .principle-card { background: var(--surface); }
+
+:root[data-theme="dark"] .principle-number {
+  background: #31462d;
+  color: #cedfbc;
+}
+
+:root[data-theme="dark"] .skill-group {
+  background: #1d2d22;
+  border-top-color: #6b865b;
+}
+
+:root[data-theme="dark"] .skill-list li {
+  background: #25392a;
+  border-color: #4c6443;
+  color: #c5d7b5;
+}

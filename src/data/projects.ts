@@ -1,32 +1,58 @@
-// src/data/projects.ts
 export interface Project {
+  id: string;
   title: string;
+  category: string;
   description: string;
   tech: string[];
-  link: string;
-  image: string; // We'll use placeholders for now
+  focus: string;
+  visual: "dashboard" | "auth" | "ui";
+  highlights: string[];
 }
 
 export const projects: Project[] = [
   {
+    id: "quantum-dashboard",
     title: "Quantum Dashboard",
-    description: "A real-time analytics engine for tracking blockchain transactions with 99.9% uptime.",
-    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-    link: "#",
-    image: "https://images.unsplash.com/photo-1551288049-bbbda536339a?w=800&q=80"
+    category: "Data & interfaces",
+    description:
+      "An analytics dashboard concept that turns complex activity into a clear, useful interface.",
+    tech: ["Next.js", "TypeScript", "PostgreSQL"],
+    focus: "Data modeling · Responsive interfaces",
+    visual: "dashboard",
+    highlights: [
+      "Define typed data contracts between the database, API, and interface so changes stay predictable.",
+      "Design loading, empty, and error states alongside the charts, with readable summaries for smaller screens.",
+      "Keep filtering and pagination close to the data layer to avoid sending unnecessary records to the browser.",
+    ],
   },
   {
+    id: "secureauth-api",
     title: "SecureAuth API",
-    description: "Custom authentication provider with multi-factor biometric support and AES-256 encryption.",
-    tech: ["Node.js", "Redis", "Docker", "AWS"],
-    link: "#",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?w=800&q=80"
+    category: "Backend & security",
+    description:
+      "An authentication service concept exploring secure sessions, clear boundaries, and dependable APIs.",
+    tech: ["Node.js", "Redis", "Docker"],
+    focus: "API design · Security by design",
+    visual: "auth",
+    highlights: [
+      "Separate identity, session management, and authorization so each responsibility can be reasoned about and tested.",
+      "Consider token expiry, session revocation, rate limits, and safe error responses as part of the API contract.",
+      "Use isolated integration tests for expired sessions, invalid credentials, and permission boundaries.",
+    ],
   },
   {
+    id: "codefidence-ui",
     title: "Codefidence UI",
-    description: "An open-source design system focused on accessibility and high-performance animations.",
-    tech: ["React", "Tailwind", "Framer Motion"],
-    link: "#",
-    image: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=800&q=80"
-  }
+    category: "Design systems",
+    description:
+      "A component system concept built around consistent patterns, accessible interactions, and thoughtful details.",
+    tech: ["React", "TypeScript", "Tailwind CSS"],
+    focus: "Accessibility · Component architecture",
+    visual: "ui",
+    highlights: [
+      "Start with semantic HTML and keyboard behavior before adding visual variants or motion.",
+      "Use shared design tokens and small, typed component APIs to keep interfaces consistent as they grow.",
+      "Check contrast, focus visibility, reduced motion, and layouts at narrow widths as part of component review.",
+    ],
+  },
 ];
