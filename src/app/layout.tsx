@@ -1,37 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const dmSans = localFont({
+  src: "./fonts/dm-sans-latin-wght-normal.woff2",
+  variable: "--font-dm-sans",
+  display: "swap",
+  weight: "100 1000",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-// Update this to brand yourself!
 export const metadata: Metadata = {
-  title: "Codefidence | Software Engineer Portfolio",
-  description: "High-performance web applications built with technical authority.",
+  title: { default: "Codefidence — Thoughtful software engineering", template: "%s | Codefidence" },
+  description: "Software engineering with purpose. Explore frontend, backend, and architecture concepts built around clarity, performance, and thoughtful user experiences.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0f172a]`}
-      >
-        {/* The Navbar */}
-        <Navbar /> 
+    <html lang="en">
+      <body className={dmSans.variable}>
+        <a className="skip-link" href="#main-content">Skip to content</a>
+        <Navbar />
         {children}
         <Footer />
       </body>

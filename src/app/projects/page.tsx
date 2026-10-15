@@ -1,22 +1,30 @@
-// src/app/projects/page.tsx
-import { projects } from "../../data/projects";
+import type { Metadata } from "next";
 import ProjectCard from "../../components/ProjectCard";
+import { projects } from "../../data/projects";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "Explore software engineering concepts spanning data interfaces, secure APIs, and accessible component systems.",
+};
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-[#0f172a] text-white pt-32 pb-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-5xl font-bold mb-4">Technical <span className="text-emerald-400">Archive</span></h1>
-        <p className="text-slate-400 max-w-2xl mb-12">
-          A deep dive into the systems I've built, the challenges I've solved, and the codebases I've mastered.
-        </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
+    <main id="main-content" className="page-main" tabIndex={-1}>
+      <header className="page-intro shell">
+        <p className="eyebrow">The work / 01—03</p>
+        <h1>Built with intent.</h1>
+        <p className="page-intro-copy">Useful interfaces. Thoughtful architecture. The details that make software feel simple, even when the problem isn’t.</p>
+      </header>
+
+      <section className="shell projects-section" aria-labelledby="selected-concepts">
+        <div className="section-heading">
+          <h2 id="selected-concepts">Selected concepts<span className="section-count">03</span></h2>
+          <p className="text-muted projects-intro-note">Design explorations with engineering notes.<br />A look at the thinking behind the interface.</p>
         </div>
-      </div>
+        <div className="project-grid">
+          {projects.map((project) => <ProjectCard key={project.id} project={project} detailed />)}
+        </div>
+      </section>
     </main>
   );
 }
