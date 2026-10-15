@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./theme.css";
 
 :root {
   --background: #f7f8f2;
@@ -391,6 +392,15 @@ main > .project-grid, .projects-grid-section { margin-top: 45px; margin-bottom: 
   .architecture-card { width: 84%; }
   .project-visual { height: 215px; padding-inline: 20px; }
   .footer-bottom { flex-direction: column; }
+}
+/* Keep the added control beside the existing actions on narrow phones. */
+@media (max-width: 420px) {
+  .header-actions { gap: 5px; }
+  .header-contact { padding-inline: 5px; gap: 5px; }
+  .theme-toggle { width: 32px; }
+}
+@media (max-width: 374px) {
+  .header-contact { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

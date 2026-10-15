@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ArrowIcon from './ArrowIcon';
+import ThemeToggle from './ThemeToggle';
 
 const navigation = [
   { href: '/', label: 'Home' },
@@ -51,6 +52,7 @@ export default function Navbar() {
         </nav>
 
         <div className="header-actions">
+          <ThemeToggle />
           <a className="header-contact" href="mailto:aigconfidence@gmail.com">
             Let&apos;s talk <ArrowIcon />
           </a>

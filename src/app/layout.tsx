@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { themeInitScript } from "../lib/theme";
 import "./globals.css";
 
 const dmSans = localFont({
@@ -18,7 +19,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script id="theme-init" dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className={dmSans.variable}>
         <a className="skip-link" href="#main-content">Skip to content</a>
         <Navbar />
