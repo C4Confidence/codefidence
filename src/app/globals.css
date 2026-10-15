@@ -249,7 +249,9 @@ main > .project-grid, .projects-grid-section { margin-top: 45px; margin-bottom: 
 .footer-brand .brand { font-size: 17px; }
 .footer-brand .brand-mark { width: 24px; height: 24px; }
 .footer-brand > p { color: var(--muted); font-size: 10px; }
-.footer-links { display: flex; gap: 26px; align-items: center; color: var(--muted); font-size: 11px; }
+.footer-links { --footer-link-gap: 26px; display: flex; flex-wrap: wrap; gap: 12px var(--footer-link-gap); align-items: center; justify-content: flex-end; min-width: 0; color: var(--muted); font-size: 11px; }
+.footer-link-item { display: inline-flex; position: relative; white-space: nowrap; }
+.footer-link-separator { position: absolute; right: calc(var(--footer-link-gap) / -2); transform: translateX(50%); pointer-events: none; }
 .footer-links a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
 .footer-links .arrow-icon { font-size: 14px; margin-left: 5px; }
 
@@ -358,7 +360,7 @@ main > .project-grid, .projects-grid-section { margin-top: 45px; margin-bottom: 
   .footer-bottom { align-items: flex-start; gap: 23px; }
   .footer-brand { flex-direction: column; align-items: flex-start; gap: 11px; }
   .footer-brand > p { font-size: 9px; }
-  .footer-links { gap: 18px; padding-top: 6px; }
+  .footer-links { --footer-link-gap: 18px; padding-top: 6px; }
 }
 @media (max-width: 540px) {
   .process-list { grid-template-columns: 1fr; gap: 22px; }
@@ -377,7 +379,7 @@ main > .project-grid, .projects-grid-section { margin-top: 45px; margin-bottom: 
   .work-section .section-heading { gap: 14px; }
   .auth-node { width: 65px; font-size: 8px; }
   .auth-flow-line { width: 26px; }
-  .footer-links { gap: 14px; font-size: 10px; }
+  .footer-links { --footer-link-gap: 14px; font-size: 10px; }
 }
 @media (max-width: 360px) {
   .shell { width: calc(100% - 32px); }
@@ -392,6 +394,7 @@ main > .project-grid, .projects-grid-section { margin-top: 45px; margin-bottom: 
   .architecture-card { width: 84%; }
   .project-visual { height: 215px; padding-inline: 20px; }
   .footer-bottom { flex-direction: column; }
+  .footer-links { justify-content: flex-start; }
 }
 /* Keep the added control beside the existing actions on narrow phones. */
 @media (max-width: 420px) {

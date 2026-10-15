@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import ArrowIcon from './ArrowIcon';
 
+const whatsappMessage = "Hi Confidence! I came across your portfolio at codefidence.de and would love to connect. I'd like to discuss a potential project or collaboration.";
+const whatsappUrl = `https://wa.me/4915565440104?text=${encodeURIComponent(whatsappMessage)}`;
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -25,8 +28,21 @@ export default function Footer() {
           <p>© {currentYear} Codefidence.</p>
         </div>
         <nav className="footer-links" aria-label="Contact links">
-          <a href="https://github.com/C4Confidence" target="_blank" rel="noopener noreferrer">GitHub <span className="sr-only">(opens in a new tab)</span></a>
-          <a href="mailto:aigconfidence@gmail.com">Email</a>
+          <span className="footer-link-item">
+            <a href="https://github.com/C4Confidence" target="_blank" rel="noopener noreferrer">GitHub <span className="sr-only">(opens in a new tab)</span></a>
+            <span className="footer-link-separator" aria-hidden="true">·</span>
+          </span>
+          <span className="footer-link-item">
+            <a href="https://www.linkedin.com/in/confidence-aigbedion/" target="_blank" rel="noopener noreferrer">LinkedIn <span className="sr-only">(opens in a new tab)</span></a>
+            <span className="footer-link-separator" aria-hidden="true">·</span>
+          </span>
+          <span className="footer-link-item">
+            <a href="mailto:aigconfidence@gmail.com">Email</a>
+            <span className="footer-link-separator" aria-hidden="true">·</span>
+          </span>
+          <span className="footer-link-item">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp <span className="sr-only">(opens in a new tab)</span></a>
+          </span>
         </nav>
       </div>
     </footer>
