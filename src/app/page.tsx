@@ -67,7 +67,7 @@ export default function Home() {
       </section>
       <div className="stack-strip shell">
         <p className="eyebrow">TOOLS OF THE TRADE</p>
-        <ul aria-label="Technology focus"><li>TypeScript</li><li>React & Next.js</li><li>Node.js</li><li>PostgreSQL</li><li>Docker & Cloud</li></ul>
+        <ul aria-label="Technology focus"><li>Python</li><li>TypeScript</li><li>React & Next.js</li><li>Node.js</li><li>PostgreSQL</li><li>Docker & Cloud</li></ul>
       </div>
       <section className="work-section shell" aria-labelledby="work-title">
         <div className="section-heading">

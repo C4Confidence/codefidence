@@ -15,7 +15,7 @@ const principles = [
 
 const skillGroups = [
   { title: "Frontend", tools: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-  { title: "Backend", tools: ["Node.js", "REST APIs", "PostgreSQL", "Data modeling"] },
+  { title: "Backend", tools: ["Python", "Node.js", "REST APIs", "PostgreSQL", "Data modeling"] },
   { title: "Delivery", tools: ["Git", "Docker", "Cloud infrastructure", "Testing"] },
 ];
 
